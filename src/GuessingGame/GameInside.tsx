@@ -83,7 +83,7 @@ const GameInside = ({ word }: wordprops) => {
                 setIndex(prev => prev + 1);
             } else if (name.includes(input)) {
                 setMessage("Correct Input at wrong index");
-                setLifes(prev => prev - 1)
+                // setLifes(prev => prev - 1)
 
             } else {
                 setMessage("Wrong input");
@@ -128,7 +128,7 @@ const GameInside = ({ word }: wordprops) => {
             </div>
 
             <div>
-                <button onClick={handleSubmit}>Submit</button>
+                <button onClick={handleSubmit}>Check</button>
             </div>
             <div className="lifelength">
                 {lifearray.map((_, indx) => (
