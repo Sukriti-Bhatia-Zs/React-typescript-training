@@ -1,0 +1,82 @@
+.maindivs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.4);
+    width:50%;
+    height:50%;
+    flex-direction: column;
+    gap:2rem;
+    position:relative;
+   
+}
+
+.innerdivs{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: beige;
+    flex-direction: row;
+    gap:2rem;
+    width:fit-content;
+    height:fit-content;
+    padding:1rem;
+}
+
+.lifelength{
+    position: absolute;
+    top:0;
+    right:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:fit-content;
+    padding:1rem;
+    z-index: 1;
+    gap:1rem;
+}
+
+.lifes{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    flex-direction: row;
+    gap:3rem;
+    width:1px;
+    height:10px;
+    padding:1rem;
+    z-index: 2;
+}
+
+.wonmaindiv{
+    display:flex;
+    position:absolute;
+    width:100vw;
+    height:100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 3;
+}
+
+.wondiv{
+    width:40%;
+    height:40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(245,245,220);
+    border:2px solid red;
+    flex-direction: column;
+    border-radius: 10px;
+    position: absolute;
+}
+
+.cross{
+    position: absolute;
+    top:10px;
+    right:20px;
+    cursor: pointer;
+   
+}
