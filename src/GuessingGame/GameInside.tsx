@@ -5,11 +5,11 @@ import Loose from './Loose.tsx';
 
 interface wordprops {
     word: string;
-  }
+}
 
-const GameInside = ({ word }:wordprops) => {
+const GameInside = ({ word }: wordprops) => {
 
-    const name=word;
+    const name = word;
 
     const [content, setContent] = useState<{ letter: string, index: number, isGuessed: boolean }[]>([]);
     const [input, setInput] = useState<string>("");
@@ -17,11 +17,11 @@ const GameInside = ({ word }:wordprops) => {
     const [message, setMessage] = useState<string>("");
     const [lifes, setLifes] = useState<number>(name.length);
     const [lifearray, setLifeArray] = useState<number[]>([]);
-    const [won,setWon]=useState<boolean>(false)
-    const [reload,setReload]=useState<boolean>(false);
-    const [loose,setLoose]=useState<boolean>(false)
+    const [won, setWon] = useState<boolean>(false)
+    const [reload, setReload] = useState<boolean>(false);
+    const [loose, setLoose] = useState<boolean>(false)
 
-    const messagearr=["Correct Input at correct index","Correct Input at wrong index","Wrong input"]
+    const messagearr = ["Correct Input at correct index", "Correct Input at wrong index", "Wrong input"]
 
     const addinarray = (name: string) => {
         const tempArray: { letter: string, index: number, isguessed: boolean }[] = [];
@@ -45,12 +45,12 @@ const GameInside = ({ word }:wordprops) => {
     };
 
 
-    useEffect(()=>{
+    useEffect(() => {
         console.log(won)
-    },[won])
+    }, [won])
 
-    useEffect(()=>{
-        if(reload){
+    useEffect(() => {
+        if (reload) {
             setMessage("")
             addinarray(name)
             setIndex(0);
@@ -58,34 +58,30 @@ const GameInside = ({ word }:wordprops) => {
             setReload(false);
             setInput('')
         }
-    },[reload])
+    }, [reload])
 
-    useEffect(()=>{
-        setTimeout(()=>{
-            if(lifes===-1){
+    useEffect(() => {
+        setTimeout(() => {
+            if (lifes === -1) {
                 setLoose(true)
             }
             console.log(loose)
-        },1000)
-    },[lifes])
+        }, 1000)
+    }, [lifes])
 
-    const findIndex=(input:string)=>{
-        const foundindex=content.findIndex(item=>item.letter === input)
-        return content[foundindex].isguessed
-    }
 
     const handleSubmit = () => {
         if (index < content.length) {
             if (input === content[index].letter) {
                 setMessage("Correct Input at correct index");
-                setContent(prev => prev.map((item, idx) => idx === index ? { ...item, isguessed: true } : item));
-                setTimeout(()=>{
-                    if(index+1 === name.length){
+                setContent(prev => prev.map((item, idx) => item.index === index ? { ...item, isguessed: true } : item));
+                setTimeout(() => {
+                    if (index + 1 === name.length) {
                         setWon(true)
-                    }   
-                },1000) 
+                    }
+                }, 1000)
                 setIndex(prev => prev + 1);
-            } else if (name.includes(input) && !findIndex(input) ) {
+            } else if (name.includes(input)) {
                 setMessage("Correct Input at wrong index");
                 setLifes(prev => prev - 1)
 
@@ -95,7 +91,7 @@ const GameInside = ({ word }:wordprops) => {
 
             }
         }
-        
+
     }
 
 
@@ -143,7 +139,7 @@ const GameInside = ({ word }:wordprops) => {
             </div>
             {message && <div style={{ backgroundColor: "beige", color: message === messagearr[0] ? 'green' : message === messagearr[1] ? 'orange' : 'red', padding: "0.2rem", borderRadius: "10px" }}><p>{message}</p></div>}
             {won && <Won won={won} setWon={setWon} reload={reload} setReload={setReload} />}
-            {loose && <Loose setLoose={setLoose} setReload={setReload}/>}
+            {loose && <Loose setLoose={setLoose} setReload={setReload} />}
 
         </div>
     );

@@ -6,7 +6,7 @@ import {useState,useEffect} from 'react'
 const Game=()=>{
    
 
-    const names=['tinaa','navya','shreya','sukriti','riya'];
+    const names=['tinai','navya','shreya','sukriti','riya'];
 
    
     const shuffleArray = (names:string[]) => {
