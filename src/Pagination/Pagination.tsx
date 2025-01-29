@@ -2,7 +2,6 @@ import React ,{useState,useEffect} from 'react'
 import Pages from './Pages.tsx';
 
 
-
 interface Product{
     img:string,
     id:number,
@@ -36,7 +35,7 @@ const Pagination=()=>{
 
 
     return (
-        <div>
+        <div >
             <Pages page={page} setPage={setPage} products={products}/>
         </div>
     )

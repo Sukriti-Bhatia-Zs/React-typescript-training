@@ -24,7 +24,7 @@ const Pages = ({ page, setPage, products }: pageprops) => {
         <div>
             {
                 products.length > 0 && (
-                    <div style={{ backgroundColor: "beige", display: "flex", flexDirection: "column", gap: "1rem", textAlign: "center" ,height:"100vh"}}>
+                    <div className="div" style={{ display: "flex", flexDirection: "column", gap: "1rem", textAlign: "center" ,height:"maxContent"}}>
                         <div >
                             <h1>Products of Page {page}</h1>
                         </div>
@@ -36,7 +36,7 @@ const Pages = ({ page, setPage, products }: pageprops) => {
                                             <img src={product.img} width={'180rem'} height={"180rem"} style={{ objectFit: "cover" }} />
                                         </div>
                                         <div className="content">
-                                            <div>
+                                            <div style={{textOverflow:"ellipses"}}>
                                                 {product.title}
                                             </div>
                                             <div>
@@ -47,7 +47,9 @@ const Pages = ({ page, setPage, products }: pageprops) => {
                                 )
                             })}
                         </div>
-                        <BottomNavigation page={page} setPage={setPage} products={products}/>
+                        <div>
+                            <BottomNavigation page={page} setPage={setPage} products={products}/>
+                        </div>
                     </div>
                 )
             }

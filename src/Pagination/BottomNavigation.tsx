@@ -15,10 +15,10 @@ interface Product {
 
 const BottomNavigation = ({ page, setPage, products }: NavigationProps) => {
     const totalPages = Math.ceil(products.length / 10);
-    const visibleRange=5;
+    const visiblerange = 5;
 
-    const startingpagerange=Math.max(1,page-visibleRange+1);
-    const endingpagerange=Math.min(totalPages,startingpagerange+visibleRange-1);
+    const startingpagerange = Math.max(1, page - visiblerange + 1);
+    const endingpagerange = Math.min(totalPages, startingpagerange + visiblerange - 1);
 
 
     const selectPage = (pageSelected: number) => {
@@ -30,38 +30,39 @@ const BottomNavigation = ({ page, setPage, products }: NavigationProps) => {
 
     return (
         <div className="bottom">
-            <button onClick={() => selectPage(1)} className={page === 1 ? 'disabled' : ''}>
+            <button onClick={() => selectPage(1)} disabled={page === 1}>
                 ⏮
             </button>
-            <button onClick={() => selectPage(page-1)} className={page === 1 ? 'disabled' : ''}>
+            <button onClick={() => selectPage(page - 1)} disabled={page === 1}>
                 ◀
             </button>
             <div className="innerbottom">
 
-                {[...Array(visibleRange)].map((_, index) => {
-                   const pagenumber=startingpagerange+index;
+                {[...Array(visiblerange)].map((_, index) => {
+                    const pagenumber = startingpagerange + index;
                     return (
-                       pagenumber<=totalPages && (
+                        pagenumber <= totalPages && (
                             <span
-                                className={pagenumber===page ? "selectedpage":" "}
-                                onClick={()=>selectPage(pagenumber)}
+                                className={pagenumber === page ? "selectedpage" : " "}
+                                onClick={() => selectPage(pagenumber)}
+                                style={{ fontSize: "20px" }}
                             >
                                 {pagenumber}
                             </span>
-                       )
-  
+                        )
+
                     );
                 })}
 
-               
-                {endingpagerange <totalPages && <span>...</span>}
+
+                {endingpagerange < totalPages && <span>...</span>}
             </div>
-            <button onClick={() => selectPage(page+1)} className={page === totalPages ? 'disabled' : ''}>
+            <button onClick={() => selectPage(page + 1)} disabled={page === totalPages}>
                 ▶
             </button>
             <button
                 onClick={() => selectPage(totalPages)}
-                className={page === totalPages ? 'disabled' : ''}
+                disabled={page === totalPages}
             >
                 ⏭
             </button>
