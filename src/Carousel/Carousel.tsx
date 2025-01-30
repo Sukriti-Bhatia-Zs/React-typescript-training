@@ -28,16 +28,27 @@ const Carousel=({images}:CarouselProps)=>{
         setTimeout(() => setAnimation(''), 500);
     }
 
-
-    if(images.length===0){
-        return <div>Loading..</div>
-    }
-
         return (
         <div className="maindiv">
             <div className='innerdiv'>
-                <div style={{ width: "100%", height: "100%" }}>
-                    <img className={animation} src={images[currentindex].src} alt={images[currentindex].alt} height={"100%"} width={"100%"} />     
+                <div className={`imageContainer ${animation}`} >
+                    {
+                        images.map((Image:image,indx:number)=>{
+                            return (
+                                <img 
+                                    className='image' 
+                                    src={Image.src} 
+                                    alt={Image.alt}
+                                    key={Image.id}
+                                    style={{
+                                        display: indx === currentindex ? 'block':'none',
+                                        width:"100%",
+                                        height:"100%",
+                                    }}
+                                /> 
+                            )
+                        })
+                    }    
                 </div>
                 <button className="forward" onClick={clicknext}>▶</button>
                 <button className="backward" onClick={clickprev}>◀</button>

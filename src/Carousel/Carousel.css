@@ -6,6 +6,11 @@
     width: 100vw;
     height: 100vh;
   }
+
+  *{
+    margin:0;
+    padding:0;
+  }
   
   .innerdiv {
     width: 50vw;
@@ -41,32 +46,49 @@
   }
   
 
-  @keyframes SlideIn {
+@keyframes SlideIn {
     0% {
-        transform: translateX(100%);  
+        transform: translateX(100%);
+        opacity: 0.2; 
     }
     100% {
         transform: translateX(0%);  
+        opacity: 1;
     }
 }
 
 @keyframes SlideOut {
     0% {
-        transform: translateX(-100%);  
+        transform: translateX(-100%); 
+        opacity: 0.2; 
     }
     100% {
         transform: translateX(0%);  
+        opacity: 1;
     }
 }
   
   
-  .slidein {
+.slidein {
     animation: SlideIn 0.5s ease-in;
   }
   
-  .slideout {
+.slideout {
     animation: SlideOut 0.5s ease-out;
   }
+
+.imageContainer{
+    display:flex;
+    transition:animation 0.5s;
+}
+
+.image{
+    object-fit: cover;
+    height:100%;
+    width:100%;
+}
+
+
   
   
 
