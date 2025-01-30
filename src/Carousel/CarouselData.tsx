@@ -7,9 +7,7 @@ const CarouselData = () => {
 
     const { data, error, loading } = useData('http://localhost:3000/images')
 
-    console.log(data)
-
-
+    
     console.log(data, error, loading)
 
     return (
@@ -19,7 +17,7 @@ const CarouselData = () => {
                     height: "100vh", 
                     display: "flex",
                     justifyContent: "center",
-                    backgroundColor: "beige"
+                    backgroundColor: "beige",
                 }}>Loading ...</div> 
             :(
                 data && <Carousel images={data} />

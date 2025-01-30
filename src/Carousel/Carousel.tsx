@@ -13,27 +13,20 @@ interface CarouselProps {
 const Carousel=({images}:CarouselProps)=>{
 
     const [currentindex,setCurrentIndex]=useState<number>(0)
-    const [animation,setAnimation]=useState<string>('fadein')
+    const [animation,setAnimation]=useState<string>('')
 
 
-    const clicknext=()=>{
-        setAnimation('fadin')
+    const clicknext=()=>{ 
+        setAnimation('slidein');
         setCurrentIndex(prev=>(prev+1)%images.length)
+        setTimeout(() => setAnimation(''), 500);
     }
 
     const clickprev=()=>{
-        setAnimation('fadeout')
-        setCurrentIndex(prev=>(prev-1+images.length)%images.length)
+        setAnimation('slideout');
+        setCurrentIndex(prev=>(prev-1+images.length)%images.length) 
+        setTimeout(() => setAnimation(''), 500);
     }
-
-
- 
-    useEffect(() => {
-        const timeout = setTimeout(() => {
-            setAnimation('');
-        }, 400);
-        return () => clearTimeout(timeout);
-    }, [animation]);
 
 
     if(images.length===0){
@@ -43,8 +36,8 @@ const Carousel=({images}:CarouselProps)=>{
         return (
         <div className="maindiv">
             <div className='innerdiv'>
-            <div className={`carousel-image ${animation}`} style={{ width: "100%", height: "100%" }}>
-                    <img src={images[currentindex].src} alt={images[currentindex].alt} height={"100%"} width={"100%"} />
+                <div style={{ width: "100%", height: "100%" }}>
+                    <img className={animation} src={images[currentindex].src} alt={images[currentindex].alt} height={"100%"} width={"100%"} />     
                 </div>
                 <button className="forward" onClick={clicknext}>▶</button>
                 <button className="backward" onClick={clickprev}>◀</button>
