@@ -1,0 +1,77 @@
+.maindiv {
+    display: flex;
+    background-color: beige;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  .innerdiv {
+    width: 50vw;
+    height: 50vh;
+    border: 2px solid black;
+    position: relative;
+    overflow: hidden; 
+  }
+  
+  .forward {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    background-color: beige;
+  }
+  
+  .backward {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    background-color: beige;
+  }
+  
+  .navbar {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    bottom: 0;
+  }
+  
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  
+  .fadin {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  
+  .fadeout {
+    animation: fadeOut 0.5s ease-out forwards;
+  }
+  
+  
+  .carousel-image {
+    transition: opacity 0.2s ease-out;
+  }
+  
+
+
+
