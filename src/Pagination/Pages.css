@@ -65,7 +65,7 @@
 }
 
 
-@media (max-width: 750px) {
+@media (max-width: 850px) {
     .prods {
         display: grid;
         width: 100vw;
@@ -74,12 +74,21 @@
         gap: 2rem;
         grid-template-columns: repeat(2, 1fr);
     }
-
-   
-
-    
    
 }
 
+@media (max-width: 450px) {
+    .prods {
+        display: grid;
+        width: 100vw;
+        height: max-content;
+        background-color: beige; 
+        gap: 2rem;
+        grid-template-columns: repeat(1, 1fr);
+    
+    }
+   
+   
+}
 
   
