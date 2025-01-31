@@ -25,7 +25,7 @@ const BottomNavigation = ({ page, setPage, products }: NavigationProps) => {
         if(page===1 && pageSelected===0){
             setPage(totalPages)
         }
-        if(page===10 && pageSelected===11){
+        if(page===totalPages && pageSelected===11){
             setPage(1)
         }
         if (pageSelected > 0 && pageSelected <= totalPages && pageSelected !== page) {
@@ -34,10 +34,9 @@ const BottomNavigation = ({ page, setPage, products }: NavigationProps) => {
         
     };
 
-
     return (
         <div className="bottom">
-            <button onClick={() => selectPage(10)} >
+            <button onClick={() => selectPage(totalPages)} >
                 ⏮
             </button>
             <button onClick={() => selectPage(page - 1)} >
