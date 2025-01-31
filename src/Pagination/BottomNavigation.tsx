@@ -22,18 +22,25 @@ const BottomNavigation = ({ page, setPage, products }: NavigationProps) => {
 
 
     const selectPage = (pageSelected: number) => {
+        if(page===1 && pageSelected===0){
+            setPage(totalPages)
+        }
+        if(page===10 && pageSelected===11){
+            setPage(1)
+        }
         if (pageSelected > 0 && pageSelected <= totalPages && pageSelected !== page) {
             setPage(pageSelected);
         }
+        
     };
 
 
     return (
         <div className="bottom">
-            <button onClick={() => selectPage(1)} disabled={page === 1}>
+            <button onClick={() => selectPage(10)} >
                 ⏮
             </button>
-            <button onClick={() => selectPage(page - 1)} disabled={page === 1}>
+            <button onClick={() => selectPage(page - 1)} >
                 ◀
             </button>
             <div className="innerbottom">
@@ -57,12 +64,12 @@ const BottomNavigation = ({ page, setPage, products }: NavigationProps) => {
 
                 {endingpagerange < totalPages && <span>...</span>}
             </div>
-            <button onClick={() => selectPage(page + 1)} disabled={page === totalPages}>
+            <button onClick={() => selectPage(page + 1)} >
                 ▶
             </button>
             <button
-                onClick={() => selectPage(totalPages)}
-                disabled={page === totalPages}
+                onClick={() => selectPage(1)}
+               
             >
                 ⏭
             </button>

@@ -18,13 +18,11 @@ const Pages = ({ page, setPage, products }: pageprops) => {
 
     console.log(products)
 
-
-
     return (
         <div>
             {
                 products.length > 0 && (
-                    <div className="div" style={{ display: "flex", flexDirection: "column", gap: "1rem", textAlign: "center" ,height:"maxContent"}}>
+                    <div className="div" style={{ display: "flex", flexDirection: "column", gap: "1rem", textAlign: "center" ,height:"maxContent",justifyContent:"center",alignItems:"center",backgroundColor:"lightblue"}}>
                         <div >
                             <h1>Products of Page {page}</h1>
                         </div>
@@ -33,7 +31,7 @@ const Pages = ({ page, setPage, products }: pageprops) => {
                                 return (
                                     <div className="insideprod">
                                         <div>
-                                            <img src={product.img} width={'180rem'} height={"180rem"} style={{ objectFit: "cover" }} />
+                                            <img src={product.img} width={'180rem'} height={"180rem"} style={{ objectFit: "cover" }} alt={product.id}/>
                                         </div>
                                         <div className="content">
                                             <div style={{textOverflow:"ellipses"}}>
