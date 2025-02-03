@@ -58,7 +58,7 @@ const BottomNavigation = ({ page, setPage, products }: NavigationProps) => {
                 })}
 
 
-                {endingpagerange < totalPages && <span>...</span>}
+              
             </div>
             <button onClick={() => selectPage(page + 1)} >
                 ▶
