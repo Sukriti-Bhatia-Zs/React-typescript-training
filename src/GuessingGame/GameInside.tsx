@@ -42,7 +42,14 @@ const GameInside = ({ word }: wordprops) => {
     const handleChange = (e: any) => {
         setInput(e.target.value);
         setMessage('');
+       
     };
+
+    useEffect(() => {
+        if (input !== '') {
+            handleSubmit();
+        }
+    }, [input]);
 
 
     useEffect(() => {
@@ -83,11 +90,13 @@ const GameInside = ({ word }: wordprops) => {
                 setIndex(prev => prev + 1);
             } else if (name.includes(input)) {
                 setMessage("Correct Input at wrong index");
-                // setLifes(prev => prev - 1)
 
             } else {
                 setMessage("Wrong input");
                 setLifes(prev => prev - 1)
+                setTimeout(()=>{
+                    alert("Oops One Life Lost")
+                },100)
 
             }
         }
@@ -117,7 +126,7 @@ const GameInside = ({ word }: wordprops) => {
                 ))}
             </div>
 
-            <div>
+            <div style={{display:"flex",justifyContent:"center",alignItems:"center",flexDirection:"column",gap:"1rem"}}>
                 <input
                     type="text"
                     placeholder="Please Enter the letter here.."
@@ -125,11 +134,12 @@ const GameInside = ({ word }: wordprops) => {
                     value={input}
                     style={{ width: "100%", padding: "0.5rem" }}
                 />
+          
+            {message && <div style={{ backgroundColor: "beige", color: message === messagearr[0] ? 'green' : message === messagearr[1] ? 'orange' : 'red', padding: "0.2rem", borderRadius: "10px" }}><p>{message}</p></div>}
             </div>
-
-            <div>
+            {/* <div>
                 <button onClick={handleSubmit}>Check</button>
-            </div>
+            </div> */}
             <div className="lifelength">
                 {lifearray.map((_, indx) => (
                     <div key={indx} className="lifes">
@@ -137,7 +147,6 @@ const GameInside = ({ word }: wordprops) => {
                     </div>
                 ))}
             </div>
-            {message && <div style={{ backgroundColor: "beige", color: message === messagearr[0] ? 'green' : message === messagearr[1] ? 'orange' : 'red', padding: "0.2rem", borderRadius: "10px" }}><p>{message}</p></div>}
             {won && <Won won={won} setWon={setWon} reload={reload} setReload={setReload} />}
             {loose && <Loose setLoose={setLoose} setReload={setReload} />}
 

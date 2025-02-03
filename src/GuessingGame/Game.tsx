@@ -1,12 +1,12 @@
 import React from 'react'
 import GameInside from './GameInside.tsx'
-import {useState,useEffect} from 'react'
+
 
 
 const Game=()=>{
    
 
-    const names=['tinai','navya','shreya','sukriti','riya'];
+    const names=['tinai','navya','shreya','sheen','riyaa'];
 
    
     const shuffleArray = (names:string[]) => {
