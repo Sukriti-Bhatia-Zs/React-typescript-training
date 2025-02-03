@@ -14,7 +14,7 @@ const Pagination=()=>{
     const [products,setProducts]=useState<Product[]>([])
 
     const fetchdata=async ()=>{
-        const res=await fetch('https://dummyjson.com/products?limit=30')
+        const res=await fetch('https://dummyjson.com/products?limit=100')
         const data=await res.json()
 
         if(data && data.products){

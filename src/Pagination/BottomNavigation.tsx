@@ -22,21 +22,18 @@ const BottomNavigation = ({ page, setPage, products }: NavigationProps) => {
 
 
     const selectPage = (pageSelected: number) => {
-        if(page===1 && pageSelected===0){
-            setPage(totalPages)
-        }
-        if(page===totalPages && pageSelected===11){
-            setPage(1)
-        }
-        if (pageSelected > 0 && pageSelected <= totalPages && pageSelected !== page) {
+        if (pageSelected < 1) {
+            setPage(totalPages);  
+        } else if (pageSelected > totalPages) {
+            setPage(1);  
+        } else if (pageSelected !== page) {
             setPage(pageSelected);
         }
-        
     };
 
     return (
         <div className="bottom">
-            <button onClick={() => selectPage(totalPages)} >
+             <button onClick={() => selectPage(page === 1 ? totalPages : 1)}>
                 ⏮
             </button>
             <button onClick={() => selectPage(page - 1)} >
@@ -66,10 +63,7 @@ const BottomNavigation = ({ page, setPage, products }: NavigationProps) => {
             <button onClick={() => selectPage(page + 1)} >
                 ▶
             </button>
-            <button
-                onClick={() => selectPage(1)}
-               
-            >
+            <button onClick={() => selectPage(page === totalPages ? 1 : totalPages)}>
                 ⏭
             </button>
         </div>
@@ -77,3 +71,4 @@ const BottomNavigation = ({ page, setPage, products }: NavigationProps) => {
 };
 
 export default BottomNavigation;
+
