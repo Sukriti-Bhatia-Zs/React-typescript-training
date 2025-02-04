@@ -1,0 +1,20 @@
+.mainbody{
+    width:100vw;
+    height:100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: beige;
+    color:black;
+}
+
+.divclass{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:2rem;
+    background-color:azure;
+    flex-direction:column;
+    gap:1rem;
+    border:1px solid black;
+}
