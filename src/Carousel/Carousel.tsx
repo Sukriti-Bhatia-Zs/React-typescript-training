@@ -33,8 +33,8 @@ const Carousel=({images}:CarouselProps)=>{
     const clickprev=()=>{
         
         if(ref.current){
-            const newindx=(currentindex-1)%images.length
-            const translate=(newindx*ref.current.clientWidth);
+            const newindx=(currentindex-1+images.length)%images.length
+            const translate=(newindx*ref.current.clientWidth)
 
             ref.current.style.transition="transform 0.5s ease-in-out";
             ref.current.style.transform=`translateX(-${translate}px)`
@@ -51,15 +51,14 @@ const Carousel=({images}:CarouselProps)=>{
                 <div ref={ref} className="imageContainer" >
                     {
                         images.map((Image:image,indx:number)=>{
-                            return (
-                                <img 
+                               return ( <img 
                                     className='image' 
                                     src={Image.src} 
                                     alt={Image.alt}
                                     key={Image.id}
                                     
                                 /> 
-                            )
+                               )
                         })
                     }    
                 </div>
