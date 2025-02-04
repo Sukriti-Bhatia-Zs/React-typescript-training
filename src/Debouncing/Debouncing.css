@@ -2,8 +2,9 @@
     width:100vw;
     height:100vh;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    gap:2rem;
     background-color: beige;
     color:black;
 }
@@ -16,5 +17,7 @@
     background-color:azure;
     flex-direction:column;
     gap:1rem;
-    border:1px solid black;
+    border:2px solid black;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+   
 }
