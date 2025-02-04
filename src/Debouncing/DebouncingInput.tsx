@@ -8,9 +8,7 @@ const DebouncingInput=()=>{
     const [input,setInput]=useState<string>("")
 
     const handlechange=(event:any)=>{
-        setInput(event.target.value)
-        console.log(input)
-       
+        setInput(event.target.value)   
     }
 
     const debouncingfunc=(func:any,delay:any)=>{
