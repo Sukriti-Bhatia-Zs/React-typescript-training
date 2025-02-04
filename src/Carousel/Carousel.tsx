@@ -1,4 +1,4 @@
-import React ,{useState,useEffect} from 'react'
+import React ,{useState,useEffect,useRef} from 'react'
 import './Carousel.css'
 
 interface image{
@@ -13,25 +13,26 @@ interface CarouselProps {
 const Carousel=({images}:CarouselProps)=>{
 
     const [currentindex,setCurrentIndex]=useState<number>(0)
-    const [animation,setAnimation]=useState<string>('')
+    // const [animation,setAnimation]=useState<string>('')
+    const ref=useRef(null)
 
 
     const clicknext=()=>{ 
-        setAnimation('slidein');
+        // setAnimation('slidein');
         setCurrentIndex(prev=>(prev+1)%images.length)
-        setTimeout(() => setAnimation(''), 500);
+        // setTimeout(() => setAnimation(''), 500);
     }
 
     const clickprev=()=>{
-        setAnimation('slideout');
+        // setAnimation('slideout');
         setCurrentIndex(prev=>(prev-1+images.length)%images.length) 
-        setTimeout(() => setAnimation(''), 500);
+        // setTimeout(() => setAnimation(''), 500);
     }
 
         return (
         <div className="maindiv">
             <div className='innerdiv'>
-                <div className={`imageContainer ${animation}`} >
+                <div ref={ref} className="imageContainer" >
                     {
                         images.map((Image:image,indx:number)=>{
                             return (
@@ -40,11 +41,11 @@ const Carousel=({images}:CarouselProps)=>{
                                     src={Image.src} 
                                     alt={Image.alt}
                                     key={Image.id}
-                                    style={{
-                                        display: indx === currentindex ? 'block':'none',
-                                        width:"100%",
-                                        height:"100%",
-                                    }}
+                                    // style={{
+                                    //     display: indx === currentindex ? 'block':'none',
+                                    //     width:"100%",
+                                    //     height:"100%",
+                                    // }}
                                 /> 
                             )
                         })
