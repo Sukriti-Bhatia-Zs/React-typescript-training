@@ -1,19 +1,16 @@
-import React ,{useState,useRef,useEffect} from 'react'
+import React ,{useState} from 'react'
 import './Debouncing.css'
 
 
 
 const DebouncingInput=()=>{
 
-    const ref=useRef<HTMLElement>(null)
     const [input,setInput]=useState<string>("")
 
     const handlechange=(event:any)=>{
         setInput(event.target.value)
         console.log(input)
-        if(ref.current){
-            ref.current.value=input;
-        }
+       
     }
 
     const debouncingfunc=(func:any,delay:any)=>{
@@ -50,7 +47,6 @@ const DebouncingInput=()=>{
                 </div>
                 <input type="text" 
                 placeholder="The value is"
-                ref={ref}
                 style={{padding:"1rem"}}
                 value={input}
             />
