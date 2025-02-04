@@ -13,12 +13,13 @@
   }
   
   .innerdiv {
-    width: 50vw;
-    height: 50vh;
+    width: 600px;
+    height: max-content;
     border:2px solid black;
     position: relative;
     overflow: hidden; 
     border-radius: 20px;
+    overflow-x: auto;
   }
   
   .forward {
@@ -46,40 +47,9 @@
   }
   
 
-@keyframes SlideIn {
-    0% {
-        transform: translateX(100%);
-        opacity: 0.2; 
-    }
-    100% {
-        transform: translateX(0%);  
-        opacity: 1;
-    }
-}
-
-@keyframes SlideOut {
-    0% {
-        transform: translateX(-100%); 
-        opacity: 0.2; 
-    }
-    100% {
-        transform: translateX(0%);  
-        opacity: 1;
-    }
-}
-  
-  
-.slidein {
-    animation: SlideIn 0.5s ease-in;
-  }
-  
-.slideout {
-    animation: SlideOut 0.5s ease-out;
-  }
-
 .imageContainer{
     display:flex;
-    transition:animation 0.5s;
+
 }
 
 .image{

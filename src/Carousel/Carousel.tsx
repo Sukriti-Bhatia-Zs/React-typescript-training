@@ -1,4 +1,4 @@
-import React ,{useState,useEffect,useRef} from 'react'
+import React ,{useState,useRef} from 'react'
 import './Carousel.css'
 
 interface image{
@@ -13,21 +13,37 @@ interface CarouselProps {
 const Carousel=({images}:CarouselProps)=>{
 
     const [currentindex,setCurrentIndex]=useState<number>(0)
-    // const [animation,setAnimation]=useState<string>('')
-    const ref=useRef(null)
+    const ref=useRef<HTMLDivElement>(null)
 
 
     const clicknext=()=>{ 
-        // setAnimation('slidein');
-        setCurrentIndex(prev=>(prev+1)%images.length)
-        // setTimeout(() => setAnimation(''), 500);
+        if (ref.current){
+            const newindx=(currentindex+1)%images.length;
+            const translate=(newindx*ref.current.clientWidth)
+    
+            ref.current.style.transition="transform 0.5s ease-in-out"
+            ref.current.style.transform= `translateX(-${translate}px)`
+    
+            setCurrentIndex(newindx)
+        }
+       
+       
     }
 
     const clickprev=()=>{
-        // setAnimation('slideout');
-        setCurrentIndex(prev=>(prev-1+images.length)%images.length) 
-        // setTimeout(() => setAnimation(''), 500);
+        
+        if(ref.current){
+            const newindx=(currentindex-1)%images.length
+            const translate=(newindx*ref.current.clientWidth);
+
+            ref.current.style.transition="transform 0.5s ease-in-out";
+            ref.current.style.transform=`translateX(-${translate}px)`
+
+            setCurrentIndex(newindx) 
+        }
+        
     }
+
 
         return (
         <div className="maindiv">
@@ -41,11 +57,7 @@ const Carousel=({images}:CarouselProps)=>{
                                     src={Image.src} 
                                     alt={Image.alt}
                                     key={Image.id}
-                                    // style={{
-                                    //     display: indx === currentindex ? 'block':'none',
-                                    //     width:"100%",
-                                    //     height:"100%",
-                                    // }}
+                                    
                                 /> 
                             )
                         })

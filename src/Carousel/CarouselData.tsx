@@ -1,6 +1,5 @@
 import React from 'react'
 import useData from './useData.tsx'
-import useState from 'react'
 import Carousel from './Carousel.tsx'
 
 const CarouselData = () => {
