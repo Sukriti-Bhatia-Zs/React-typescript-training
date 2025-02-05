@@ -1,0 +1,51 @@
+.lights{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: black;
+    border:2px solid black;
+    gap:2rem;
+    padding:2rem;
+
+}
+
+.maindiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: azure;
+    border:2px solid white;
+    gap:0rem;
+    width:100vw;
+    height:100vh;
+}
+
+.innerlights{
+    border-radius:20px;
+    background-color:lightgrey;
+    height:40px;
+    width:40px;
+}
+
+.red{
+    background-color: red;
+    border-radius:20px;
+    height:40px;
+    width:40px;
+}
+
+.green{
+    background-color: green;
+    border-radius:20px;
+    height:40px;
+    width:40px;
+}
+
+.yellow{
+    background-color: yellow;
+    border-radius:20px;
+    height:40px;
+    width:40px;
+}
