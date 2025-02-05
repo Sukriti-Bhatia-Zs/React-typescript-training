@@ -1,0 +1,67 @@
+.maindiv {
+    display: flex;
+    background-color: beige;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  *{
+    margin:0;
+    padding:0;
+  }
+  
+  .innerdiv {
+    width: 600px;
+    height: max-content;
+    border:2px solid black;
+    position: relative;
+    overflow: hidden; 
+    border-radius: 20px;
+    overflow-x: auto;
+  }
+  
+  .forward {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    background-color: beige;
+  }
+  
+  .backward {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    background-color: beige;
+  }
+  
+  .navbar {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    bottom: 0;
+  }
+  
+
+.imageContainer{
+    display:flex;
+
+}
+
+.image{
+    object-fit: cover;
+    height:100%;
+    width:100%;
+}
+
+
+  
+  
+
+
+
+
