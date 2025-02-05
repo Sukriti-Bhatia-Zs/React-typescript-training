@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
+import DebouncingInput from './Debouncing/DebouncingInput.tsx';
 
 function App() {
   return (
    <div>
-    hi
+    <DebouncingInput/>
    </div>
   );
 }
